@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return "<h1>ยินดีต้อนรับเข้าสู่หน้าแรกของเว็บไซต์</h1>";
+    return "<a href='".route('login')."'>Login</a>";
 });
 
 Route::get('about', function () {
@@ -24,6 +24,16 @@ Route::get('about', function () {
 Route::get('blog', function () {
     return "<h1>บทความทั้งหมด</h1>";
 });
+
 Route::get('blog/{name}', function ($name) {
     return "<h1>บทความ $name</h1>";
+});
+
+Route::get('admin/user/adisak', function () {
+    return "<h1>ยินดีต้อนรับ Admin</h1>";
+})->name('login');
+
+
+Route::fallback(function () {
+    return "<h1>ไม่พบหน้าหน้าเว็บ</h1>";
 });
