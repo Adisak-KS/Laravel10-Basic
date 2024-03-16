@@ -14,5 +14,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "<h1>ยินดีต้อนรับเข้าสู่หน้าแรกของเว็บไซต์</h1>";
+});
+
+Route::get('about', function () {
+    return "<h1>เกี่ยวกับเรา</h1>";
+});
+
+Route::get('blog', function () {
+    return "<h1>บทความทั้งหมด</h1>";
+});
+Route::get('blog/{name}', function ($name) {
+    return "<h1>บทความ $name</h1>";
 });
