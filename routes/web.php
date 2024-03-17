@@ -19,9 +19,9 @@ Route::get('/', function () {
 
 Route::get('about', function () {
     return view('about');
-});
+})->name('about');
 
 Route::get('blog', function () {
     return view('blog');
-});
+})->name('blog');
 
