@@ -18,7 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('about', function () {
-    return view('about');
+    $name = "Adisak";
+    $date = "17 มรนาคม 2567";
+    return view('about', compact('name','date'));
 })->name('about');
 
 Route::get('blog', function () {
