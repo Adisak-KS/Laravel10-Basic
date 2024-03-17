@@ -48,7 +48,7 @@ Route::get('blog', function () {
         [
             'title' => 'บทความที่ 5',
             'content' => 'บทความที่ 5',
-            'status' => true
+            'status' => false
         ]
     ];
 
