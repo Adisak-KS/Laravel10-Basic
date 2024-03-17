@@ -20,10 +20,37 @@ Route::get('/', function () {
 Route::get('about', function () {
     $name = "Adisak";
     $date = "17 มรนาคม 2567";
-    return view('about', compact('name','date'));
+    return view('about', compact('name', 'date'));
 })->name('about');
 
 Route::get('blog', function () {
-    return view('blog');
-})->name('blog');
+    $blogs = [
+        [
+            'title' => 'บทความที่ 1',
+            'content' => 'บทความที่ 2',
+            'status' => true
+        ],
+        [
+            'title' => 'บทความที่ 2',
+            'content' => 'บทความที่ 2',
+            'status' => false
+        ],
+        [
+            'title' => 'บทความที่ 3',
+            'content' => 'บทความที่ 3',
+            'status' => true
+        ],
+        [
+            'title' => 'บทความที่ 4',
+            'content' => 'บทความที่ 4',
+            'status' => true
+        ],
+        [
+            'title' => 'บทความที่ 5',
+            'content' => 'บทความที่ 5',
+            'status' => true
+        ]
+    ];
 
+    return view('blog', compact('blogs'));
+})->name('blog');

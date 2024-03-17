@@ -2,5 +2,10 @@
 @section('title', 'บทความทั้งหมด')
 @section('content')
     <h2>บทความทั้งหมด</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum, qui.</p>
+    <hr>
+    @foreach ($blogs as $item)
+        <h4>{{$item["title"]}}</h4>
+        <p>{{$item["content"]}}</p>
+        <hr>
+    @endforeach
 @endsection
