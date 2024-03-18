@@ -6,17 +6,17 @@
         <thead>
             <tr>
                 <th scope="col">ชื่อบทความ</th>
-                <th scope="col">เนื้อหา</th>
+                {{-- <th scope="col">เนื้อหา</th> --}}
                 <th scope="col">สถานะ</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($blogs as $item)
                 <tr>
-                    <td>{{ $item['title'] }}</td>
-                    <td>{{ $item['content'] }}</td>
+                    <td>{{ $item->title}}</td>
+                    {{-- <td>{{ Str::limit($item->content,10)}}</td> --}}
                     <td>
-                        @if ($item['status'] == true)
+                        @if ($item->status == true)
                             <a href="#" class="btn btn-success">เผยแพร่</a>
                         @else
                             <a href="#" class="btn btn-warning">ฉบับร่าง</a>
