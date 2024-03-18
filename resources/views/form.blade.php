@@ -15,7 +15,7 @@
         @enderror
         <div class="form-group">
             <label for="title">เนื้อหาบทความ</label>
-            <textarea name="content" cols="30" rows="5" class="form-control"></textarea>
+            <textarea name="content" cols="30" rows="5" class="form-control" id="content"></textarea>
         </div>
         @error('content')
             <div class="my-2">
@@ -25,4 +25,13 @@
         <input type="submit" value="บันทึก" class="btn btn-primary my-3">
         <a href="/author/blog" class="btn btn-success">บทความทั้งหมด</a>
     </form>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#content' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+    
 @endsection
