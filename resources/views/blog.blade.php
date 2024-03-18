@@ -18,9 +18,9 @@
                     {{-- <td>{{ Str::limit($item->content,10)}}</td> --}}
                     <td>
                         @if ($item->status == true)
-                            <a href="#" class="btn btn-success">เผยแพร่</a>
+                            <a href="{{route('change', $item->id)}}" class="btn btn-success">เผยแพร่</a>
                         @else
-                            <a href="#" class="btn btn-warning">ฉบับร่าง</a>
+                            <a href="{{route('change', $item->id)}}" class="btn btn-warning">ฉบับร่าง</a>
                         @endif
                     </td>
                     <td>
