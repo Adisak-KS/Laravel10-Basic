@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function index()
     {
         $blogs = DB::table("blogs")->paginate(3);
@@ -52,16 +57,18 @@ class AdminController extends Controller
         return redirect('/blog');
     }
 
-    function change($id){
+    function change($id)
+    {
         $blog = DB::table('blogs')->where('id', $id)->first();
-        $data=[
-            'status'=>!$blog->status
+        $data = [
+            'status' => !$blog->status
         ];
-        $blog=DB::table('blogs')->where('id', $id)->update($data);
-        return redirect('/blog');    
+        $blog = DB::table('blogs')->where('id', $id)->update($data);
+        return redirect('/blog');
     }
 
-    function edit($id){
+    function edit($id)
+    {
         $blog = DB::table('blogs')->where('id', $id)->first();
         return view('edit', compact('blog'));
     }
@@ -86,5 +93,4 @@ class AdminController extends Controller
         DB::table('blogs')->where('id', $id)->update($data);
         return redirect('/blog');
     }
-
 }
