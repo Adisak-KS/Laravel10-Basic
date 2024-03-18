@@ -34,16 +34,22 @@ class AdminController extends Controller
                 'content' => 'required'
             ],
             [
-                'title.required'=>'กรุณาป้อนชื่อบทความของคุณ',
-                'title.max'=>'ชื่อบทความไม่ควรเกิน 50 ตัวอักษร',
-                'content.required'=>'กรุณาป้อนเนื้อหาบทความของคุณ'
+                'title.required' => 'กรุณาป้อนชื่อบทความของคุณ',
+                'title.max' => 'ชื่อบทความไม่ควรเกิน 50 ตัวอักษร',
+                'content.required' => 'กรุณาป้อนเนื้อหาบทความของคุณ'
             ]
         );
-    }
-
-    function delete($id){
-        DB::table('blogs')->where('id', $id)->delete();
+        $data = [
+            'title' => $request->title,
+            'content' => $request->content
+        ];
+        DB::table('blogs')->insert($data);
         return redirect('/blog');
     }
 
+    function delete($id)
+    {
+        DB::table('blogs')->where('id', $id)->delete();
+        return redirect('/blog');
+    }
 }
