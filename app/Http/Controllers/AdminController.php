@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Blog;
 
 class AdminController extends Controller
 {
@@ -14,7 +15,8 @@ class AdminController extends Controller
 
     function index()
     {
-        $blogs = DB::table("blogs")->paginate(3);
+        // $blogs = DB::table("blogs")->paginate(3);
+        $blogs = Blog::paginate(5);
         return view('blog', compact('blogs'));
     }
 
@@ -47,29 +49,36 @@ class AdminController extends Controller
             'title' => $request->title,
             'content' => $request->content
         ];
-        DB::table('blogs')->insert($data);
+        // DB::table('blogs')->insert($data);
+        Blog::insert($data);
         return redirect('/blog');
     }
 
     function delete($id)
     {
-        DB::table('blogs')->where('id', $id)->delete();
-        return redirect('/blog');
+        // DB::table('blogs')->where('id', $id)->delete();
+        // return redirect('/blog');
+        Blog::find($id)->delete();
+        return redirect()->back();
     }
 
     function change($id)
     {
-        $blog = DB::table('blogs')->where('id', $id)->first();
+        // $blog = DB::table('blogs')->where('id', $id)->first();
+        $blog = Blog::find($id);
         $data = [
             'status' => !$blog->status
         ];
-        $blog = DB::table('blogs')->where('id', $id)->update($data);
-        return redirect('/blog');
+        // $blog = DB::table('blogs')->where('id', $id)->update($data);
+        // return redirect('/blog');
+        $blog = Blog::find($id)->update($data);
+        return redirect()->back();        
     }
 
     function edit($id)
     {
-        $blog = DB::table('blogs')->where('id', $id)->first();
+        // $blog = DB::table('blogs')->where('id', $id)->first();
+        $blog = Blog::find($id);
         return view('edit', compact('blog'));
     }
 
@@ -90,7 +99,8 @@ class AdminController extends Controller
             'title' => $request->title,
             'content' => $request->content
         ];
-        DB::table('blogs')->where('id', $id)->update($data);
+        // DB::table('blogs')->where('id', $id)->update($data);
+        Blog::find($id)->update($data);
         return redirect('/blog');
     }
 }
