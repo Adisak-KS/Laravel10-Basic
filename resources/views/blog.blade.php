@@ -8,12 +8,13 @@
                 <th scope="col">ชื่อบทความ</th>
                 {{-- <th scope="col">เนื้อหา</th> --}}
                 <th scope="col">สถานะ</th>
+                <th scope="col">ลบบทความ</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($blogs as $item)
                 <tr>
-                    <td>{{ $item->title}}</td>
+                    <td>{{ $item->title }}</td>
                     {{-- <td>{{ Str::limit($item->content,10)}}</td> --}}
                     <td>
                         @if ($item->status == true)
@@ -21,6 +22,13 @@
                         @else
                             <a href="#" class="btn btn-warning">ฉบับร่าง</a>
                         @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('delete', $item->id) }}" 
+                            class="btn btn-danger"
+                            onclick="return confirm('ลบบทความ {{$item->title}} หรือไม่ ?')"
+                            >ลบ
+                        </a>
                     </td>
                 </tr>
             @endforeach

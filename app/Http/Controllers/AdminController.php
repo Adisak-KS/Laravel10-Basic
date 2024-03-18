@@ -40,4 +40,10 @@ class AdminController extends Controller
             ]
         );
     }
+
+    function delete($id){
+        DB::table('blogs')->where('id', $id)->delete();
+        return redirect('/blog');
+    }
+
 }
