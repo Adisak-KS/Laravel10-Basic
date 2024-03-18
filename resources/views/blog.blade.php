@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.app')
 @section('title', 'บทความทั้งหมด')
 @section('content')
     @if (count($blogs) > 0)
