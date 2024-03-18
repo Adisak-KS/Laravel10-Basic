@@ -20,12 +20,12 @@ class AdminController extends Controller
         return view('blog', compact('blogs'));
     }
 
-    function about()
-    {
-        $name = "Adisak";
-        $date = "17 มรนาคม 2567";
-        return view('about', compact('name', 'date'));
-    }
+    // function about()
+    // {
+    //     $name = "Adisak";
+    //     $date = "17 มรนาคม 2567";
+    //     return view('about', compact('name', 'date'));
+    // }
 
     function create()
     {
@@ -51,7 +51,7 @@ class AdminController extends Controller
         ];
         // DB::table('blogs')->insert($data);
         Blog::insert($data);
-        return redirect('/blog');
+        return redirect('/author/blog');
     }
 
     function delete($id)
@@ -101,6 +101,6 @@ class AdminController extends Controller
         ];
         // DB::table('blogs')->where('id', $id)->update($data);
         Blog::find($id)->update($data);
-        return redirect('/blog');
+        return redirect('/author/blog');
     }
 }

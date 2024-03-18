@@ -23,6 +23,6 @@
             </div>
         @enderror
         <input type="submit" value="อัปเดท" class="btn btn-primary my-3">
-        <a href="/blog" class="btn btn-success">บทความทั้งหมด</a>
+        <a href="/author/blog" class="btn btn-success">บทความทั้งหมด</a>
     </form>
 @endsection

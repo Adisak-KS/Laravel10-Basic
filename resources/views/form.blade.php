@@ -2,7 +2,7 @@
 @section('title', 'เขียนบทความ')
 @section('content')
     <h2 class="text-center py-2">เขียนบทความใหม่</h2>
-    <form action="/insert" method="POST">
+    <form action="/author/insert" method="POST">
         @csrf
         <div class="form-group">
             <label for="title">ชื่อบทความ</label>
@@ -23,6 +23,6 @@
             </div>
         @enderror
         <input type="submit" value="บันทึก" class="btn btn-primary my-3">
-        <a href="/blog" class="btn btn-success">บทความทั้งหมด</a>
+        <a href="/author/blog" class="btn btn-success">บทความทั้งหมด</a>
     </form>
 @endsection
