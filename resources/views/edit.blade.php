@@ -2,7 +2,7 @@
 @section('title', 'แก้ไขบทความ')
 @section('content')
     <h2 class="text-center py-2">แก้ไขบทความ</h2>
-    <form action="#" method="POST">
+    <form action="{{route('update', $blog->id)}}" method="POST">
         @csrf
         <div class="form-group">
             <label for="title">ชื่อบทความ</label>
