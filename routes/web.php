@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', [AdminController::class,'index'])->name('blog');
+Route::get('blog', [AdminController::class,'index'])->name('blog');
 
-Route::get('blog', [AdminController::class,'about'] )->name('about');
+Route::get('about', [AdminController::class,'about'] )->name('about');
+
+Route::get('create', [AdminController::class,'create']);
