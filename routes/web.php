@@ -16,6 +16,7 @@ use App\Http\Controllers\BlogController;
 */
 //  นักอ่าน
 Route::get('/', [BlogController::class,'index']);
+Route::get('/detail/{id}',[BlogController::class,'detail']);
 
 // นักเขียน
 Route::prefix('author')->group(function () {

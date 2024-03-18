@@ -6,7 +6,7 @@
     @foreach ($blogs as $item)
         <h2>{{$item->title}}</h2>
         <p>{{Str::limit($item->content,30)}}</p>
-        <a href="#">อ่านเพิ่มเติม</a>
+        <a href="/detail/{{$item->id}}">อ่านเพิ่มเติม</a>
         <hr>
     @endforeach
     
