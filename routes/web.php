@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,10 @@ use App\Http\Controllers\AdminController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//  นักอ่าน
+Route::get('/', [BlogController::class,'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// author/blog
+// นักเขียน
 Route::prefix('author')->group(function () {
     Route::get('/blog', [AdminController::class, 'index'])->name('blog');
     // Route::get('/about', [AdminController::class, 'about'])->name('about');
