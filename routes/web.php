@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,40 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('about', function () {
-    $name = "Adisak";
-    $date = "17 มรนาคม 2567";
-    return view('about', compact('name', 'date'));
-})->name('about');
+Route::get('about', [AdminController::class,'index'])->name('blog');
 
-Route::get('blog', function () {
-    $blogs = [
-        [
-            'title' => 'บทความที่ 1',
-            'content' => 'บทความที่ 2',
-            'status' => true
-        ],
-        [
-            'title' => 'บทความที่ 2',
-            'content' => 'บทความที่ 2',
-            'status' => false
-        ],
-        [
-            'title' => 'บทความที่ 3',
-            'content' => 'บทความที่ 3',
-            'status' => true
-        ],
-        [
-            'title' => 'บทความที่ 4',
-            'content' => 'บทความที่ 4',
-            'status' => true
-        ],
-        [
-            'title' => 'บทความที่ 5',
-            'content' => 'บทความที่ 5',
-            'status' => false
-        ]
-    ];
-
-    return view('blog', compact('blogs'));
-})->name('blog');
+Route::get('blog', [AdminController::class,'about'] )->name('about');
